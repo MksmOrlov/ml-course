@@ -1,21 +1,12 @@
 import logging
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
 from user_input_processor import ObjectCalculator
 
 logger = logging.getLogger(__name__)
 
-class Figure(ABC, ObjectCalculator):
-    @abstractmethod
-    def print_answer(self) -> None:
-        pass
 
-    @staticmethod
-    def verify(params: list) -> bool:
-        return True
-
-
-class PlanarFigure(Figure):
+class PlanarFigure(ObjectCalculator):
     def __init__(self):
         self._area: float | None = None
         self._perimeter: float | None = None

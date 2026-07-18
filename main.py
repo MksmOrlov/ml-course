@@ -10,9 +10,9 @@ from figures.triangle import Triangle
 from figures.rhombus import Rhombus
 
 if __name__ == '__main__':
-    # Triangle.calculate(Triangle)
-    # Rhombus.calculate(Rhombus)
-    # SexyAngle.calculate(SexyAngle)
-    # HexagonFriends.calculate(HexagonFriends)
-    # Dodecahedron.calculate(Dodecahedron)
+    Triangle.calculate(Triangle)
+    Rhombus.calculate(Rhombus)
+    SexyAngle.calculate(SexyAngle)
+    HexagonFriends.calculate(HexagonFriends)
+    Dodecahedron.calculate(Dodecahedron)
     TrainFly.calculate(TrainFly)

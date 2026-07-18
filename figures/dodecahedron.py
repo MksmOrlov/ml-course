@@ -1,11 +1,11 @@
 import logging
 
-from figures.figure import Figure
+from user_input_processor import ObjectCalculator
 
 logger = logging.getLogger(__name__)
 
 
-class Dodecahedron(Figure):
+class Dodecahedron(ObjectCalculator):
     params_number = 1
     params_name = "Сторона"
 

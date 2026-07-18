@@ -16,7 +16,6 @@ class TrainFly(ObjectCalculator):
         self._velocity_train_1 = velocity_train_1 # Скорость v1 км/ч первого поезда
         self._velocity_train_2 = velocity_train_2 # Скорость v2 км/ч второго поезда
         self._velocity_fly = velocity_fly # Скорость vm км/ч мухи
-        
         self._length_fly = None
 
     @staticmethod

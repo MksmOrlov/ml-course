@@ -1,4 +1,5 @@
 import logging
+from abc import abstractmethod, ABC
 
 logger = logging.getLogger(__name__)
 
@@ -24,9 +25,17 @@ class UserInputProcessor:
         return params
 
 
-class ObjectCalculator:
+class ObjectCalculator(ABC):
     params_number: int
     params_name: str
+
+    @abstractmethod
+    def print_answer(self) -> None:
+        pass
+
+    @staticmethod
+    def verify(params: list) -> bool:
+        return True
 
     @staticmethod
     def create(object_class, params_number: int):
