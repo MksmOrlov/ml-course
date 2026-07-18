@@ -13,6 +13,10 @@ class Figure(ABC):
     def _calculate_area(self) -> float:
         pass
 
+    @abstractmethod
+    def print_answer(self) -> None:
+        pass
+
     @staticmethod
     def is_positive(number: float) -> bool:
         return number > 0

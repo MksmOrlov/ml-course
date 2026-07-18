@@ -1,4 +1,5 @@
 from config.logging_config import setup_logging
+from figures.sexyangle import calculate_sexyangle
 
 setup_logging()
 
@@ -9,3 +10,4 @@ from figures.rhombus import calculate_rhombus
 if __name__ == '__main__':
     calculate_triangle()
     calculate_rhombus()
+    calculate_sexyangle()
