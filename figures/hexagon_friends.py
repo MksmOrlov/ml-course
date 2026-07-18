@@ -1,12 +1,15 @@
 import logging
 
-from figures.figure import Figure
+from figures.figure import PlanarFigure
 from figures.triangle import Triangle
 
 logger = logging.getLogger(__name__)
 
 
-class HexagonFriends(Figure):
+class HexagonFriends(PlanarFigure):
+    params_number = 1
+    params_name = "Сторона"
+
     def __init__(self, side):
         super().__init__()
         self._side = side
@@ -28,29 +31,3 @@ class HexagonFriends(Figure):
     def print_answer(self) -> None:
         area = self.get_area()
         logger.info(f"S, приведённое к целочисленному типу: {int(area)}")
-
-
-class HexagonFriendsCreator:
-    @staticmethod
-    def create_hexagon_friends() -> HexagonFriends:
-        side = HexagonFriendsCreator.get_hexagon_friends_side()
-        hexagon_friends = HexagonFriends(side)
-        return hexagon_friends
-
-    @staticmethod
-    def get_hexagon_friends_side() -> tuple[float]:
-        side = float(input("Введите сторону причудливой фигуры: "))
-        if not Figure.is_positive(side):
-            side = HexagonFriendsCreator.get_hexagon_friends_side()
-            logger.warning("Сторона должна принимать положительное значение")
-        return side
-
-def calculate_hexagon_friends():
-    try:
-        hexagon_friends = HexagonFriendsCreator.create_hexagon_friends()
-        hexagon_friends.print_answer()
-    except KeyboardInterrupt:
-        logging.warning("Ввод прерван пользователем")
-    except ValueError:
-        logging.warning("Введите число")
-        calculate_hexagon_friends()

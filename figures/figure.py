@@ -1,6 +1,21 @@
+import logging
 from abc import ABC, abstractmethod
 
-class Figure(ABC):
+from user_input_processor import ObjectCalculator
+
+logger = logging.getLogger(__name__)
+
+class Figure(ABC, ObjectCalculator):
+    @abstractmethod
+    def print_answer(self) -> None:
+        pass
+
+    @staticmethod
+    def verify(params: list) -> bool:
+        return True
+
+
+class PlanarFigure(Figure):
     def __init__(self):
         self._area: float | None = None
         self._perimeter: float | None = None
@@ -12,14 +27,6 @@ class Figure(ABC):
     @abstractmethod
     def _calculate_area(self) -> float:
         pass
-
-    @abstractmethod
-    def print_answer(self) -> None:
-        pass
-
-    @staticmethod
-    def is_positive(number: float) -> bool:
-        return number > 0
 
     def get_area(self) -> float:
         if self._area is None:

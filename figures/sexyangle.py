@@ -1,11 +1,14 @@
 import logging
 
-from figures.figure import Figure
+from figures.figure import PlanarFigure
 from figures.triangle import Triangle
 
 logger = logging.getLogger(__name__)
 
-class SexyAngle(Figure):
+class SexyAngle(PlanarFigure):
+    params_number = 1
+    params_name = "Сторона"
+
     def __init__(self, side):
         super().__init__()
         self._side = side
@@ -29,28 +32,3 @@ class SexyAngle(Figure):
     def print_answer(self):
         area = self._calculate_area()
         logger.info(f"S, приведённое к целочисленному типу: {int(area)}")
-
-class SexyAngleCreator:
-    @staticmethod
-    def create_sexyangle() -> SexyAngle:
-        side = SexyAngleCreator.get_sexyangle_side()
-        sexyangle = SexyAngle(side)
-        return sexyangle
-
-    @staticmethod
-    def get_sexyangle_side() -> tuple[float]:
-        side = float(input("Введите сторону причудливой фигуры: "))
-        if not Figure.is_positive(side):
-            side = SexyAngleCreator.get_sexyangle_side()
-            logger.warning("Сторона должна принимать положительное значение")
-        return side
-
-def calculate_sexyangle():
-    try:
-        sexyangle = SexyAngleCreator.create_sexyangle()
-        sexyangle.print_answer()
-    except KeyboardInterrupt:
-        logging.warning("Ввод прерван пользователем")
-    except ValueError:
-        logging.warning("Введите число")
-        calculate_sexyangle()
