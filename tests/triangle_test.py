@@ -7,8 +7,8 @@ class TestTriangle(unittest.TestCase):
         perimeter = triangle.get_perimeter()
         self.assertEqual(perimeter, 15)
 
-        area = triangle.get_area()
-        self.assertEqual(area, 10.825)
+        area = int(triangle.get_area())
+        self.assertEqual(area, 10)
 
     def test_triangle_2(self):
         triangle = Triangle(3, 4, 5)

@@ -1,4 +1,5 @@
 from config.logging_config import setup_logging
+from figures.hexagon_friends import calculate_hexagon_friends
 from figures.sexyangle import calculate_sexyangle
 
 setup_logging()
@@ -11,3 +12,4 @@ if __name__ == '__main__':
     calculate_triangle()
     calculate_rhombus()
     calculate_sexyangle()
+    calculate_hexagon_friends()
