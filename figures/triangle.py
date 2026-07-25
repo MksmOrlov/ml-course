@@ -38,10 +38,10 @@ class Triangle(PlanarFigure):
         if self._perimeter is None:
             self._calculate_perimeter()
         perimeters_expression = (self._side_1 + self._side_2 + self._side_3) * (self._side_2 + self._side_3 - self._side_1) * (self._side_1 + self._side_3 - self._side_2) * (self._side_1 + self._side_2 - self._side_3)
-        square = 0.25 * (perimeters_expression ** 0.5)
-        square = round(square, 3)
-        self._square = square
-        return square
+        area = 0.25 * (perimeters_expression ** 0.5)
+        area = round(area, 3)
+        self._area = area
+        return area
 
     def print_answer(self):
         perimeter = self.get_perimeter()
